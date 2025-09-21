@@ -1,0 +1,176 @@
+/* AI Wellness Assistant - Custom Styles */
+
+:root {
+    --primary-color: #3b82f6;
+    --secondary-color: #10b981;
+    --accent-color: #8b5cf6;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    --success-color: #22c55e;
+}
+
+/* Stress Meter Styles */
+.stress-meter {
+    background: conic-gradient(
+        var(--success-color) 0deg 72deg,
+        #8bc34a 72deg 144deg,
+        var(--warning-color) 144deg 216deg,
+        #ff9800 216deg 288deg,
+        var(--danger-color) 288deg 360deg
+    );
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Animation Classes */
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Webcam Container */
+.webcam-container {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.stress-overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Custom Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), #1e40af);
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--success-color), #16a34a);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, var(--danger-color), #dc2626);
+}
+
+/* Card Hover Effects */
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* Wellness Technique Cards */
+.technique-card {
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.3s ease;
+}
+
+.technique-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .webcam-container {
+        margin-bottom: 1rem;
+    }
+    
+    .stress-overlay {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-top: 10px;
+        display: block;
+    }
+    
+    .grid-responsive {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Loading States */
+.loading {
+    position: relative;
+    color: transparent;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1e40af;
+}
