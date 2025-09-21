@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Dashboard - AI Wellness Assistant</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body class="bg-gradient-to-br from-green-50 to-blue-100 min-h-screen">
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <i class="fas fa-brain text-3xl text-blue-600 mr-3"></i>
+                        <h1 class="text-2xl font-bold text-gray-900">AI Wellness Assistant</h1>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="/" class="text-gray-700 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-home mr-1"></i>Home
+                    </a>
+                    <a href="/journal" class="text-gray-700 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-journal-whills mr-1"></i>Journal
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-8">
+        <div class="text-center mb-8">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                <i class="fas fa-chart-line text-green-600 mr-3"></i>
+                Wellness Dashboard
+            </h2>
+            <p class="text-lg text-gray-600">Your personal wellness insights and progress tracking.</p>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-blue-100">
+                        <i class="fas fa-smile text-blue-600 text-2xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-sm font-medium text-gray-500">Average Mood</h3>
+                        <p class="text-2xl font-bold text-gray-900">7.2/10</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-green-100">
+                        <i class="fas fa-heart text-green-600 text-2xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-sm font-medium text-gray-500">Stress Level</h3>
+                        <p class="text-2xl font-bold text-gray-900">3.8/10</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-purple-100">
+                        <i class="fas fa-calendar-check text-purple-600 text-2xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-sm font-medium text-gray-500">Journal Streak</h3>
+                        <p class="text-2xl font-bold text-gray-900">7 days</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-orange-100">
+                        <i class="fas fa-spa text-orange-600 text-2xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-sm font-medium text-gray-500">Wellness Sessions</h3>
+                        <p class="text-2xl font-bold text-gray-900">12</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <!-- Mood Trend Chart -->
+            <div class="bg-white rounded-2xl shadow-xl p-6">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Mood Trend (Last 7 Days)</h3>
+                <canvas id="moodChart" width="400" height="200"></canvas>
+            </div>
+            
+            <!-- Stress Pattern Chart -->
+            <div class="bg-white rounded-2xl shadow-xl p-6">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Stress Patterns</h3>
+                <canvas id="stressChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+
+        <!-- Insights and Recommendations -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Weekly Insights -->
+            <div class="bg-white rounded-2xl shadow-xl p-6">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Weekly Insights</h3>
+                <div class="space-y-3">
+                    <div class="p-3 bg-green-50 rounded-lg">
+                        <div class="flex items-center">
+                            <i class="fas fa-arrow-up text-green-600 mr-2"></i>
+                            <span class="text-green-800 font-medium">Mood improving this week</span>
+                        </div>
+                        <p class="text-sm text-green-700 mt-1">Your average mood increased by 15% compared to last week.</p>
+                    </div>
+                    
+                    <div class="p-3 bg-blue-50 rounded-lg">
+                        <div class="flex items-center">
+                            <i class="fas fa-calendar-alt text-blue-600 mr-2"></i>
+                            <span class="text-blue-800 font-medium">Consistent journaling</span>
+                        </div>
+                        <p class="text-sm text-blue-700 mt-1">You've maintained a 7-day journaling streak. Great job!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Technique Effectiveness -->
+            <div class="bg-white rounded-2xl shadow-xl p-6">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Most Effective Techniques</h3>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <div class="flex items-center">
+                            <i class="fas fa-wind text-blue-600 mr-3"></i>
+                            <span class="font-medium">4-7-8 Breathing</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-20 bg-gray-200 rounded-full h-2 mr-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                            <span class="text-sm font-semibold">85%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <div class="flex items-center">
+                            <i class="fas fa-spa text-green-600 mr-3"></i>
+                            <span class="font-medium">Progressive Relaxation</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-20 bg-gray-200 rounded-full h-2 mr-2">
+                                <div class="bg-green-600 h-2 rounded-full" style="width: 78%"></div>
+                            </div>
+                            <span class="text-sm font-semibold">78%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize charts
+        const moodCtx = document.getElementById('moodChart').getContext('2d');
+        const stressCtx = document.getElementById('stressChart').getContext('2d');
+        
+        // Mood trend chart
+        new Chart(moodCtx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Mood Level',
+                    data: [6, 7, 5, 8, 7, 8, 9],
+                    borderColor: 'rgb(59, 130, 246)',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10
+                    }
+                }
+            }
+        });
+        
+        // Stress pattern chart
+        new Chart(stressCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Tension', 'Anxiety', 'Suppression', 'Concentration'],
+                datasets: [{
+                    label: 'Detection Frequency',
+                    data: [12, 8, 5, 15],
+                    backgroundColor: [
+                        'rgba(245, 101, 101, 0.8)',
+                        'rgba(251, 191, 36, 0.8)',
+                        'rgba(139, 195, 74, 0.8)',
+                        'rgba(96, 165, 250, 0.8)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
