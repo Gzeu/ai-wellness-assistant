@@ -1,0 +1,18 @@
+# AI Wellness Assistant - MVP Requirements
+# Minimal dependencies for basic functionality
+
+# Core Flask framework
+Flask==2.3.3
+Flask-CORS==4.0.0
+
+# Computer Vision (essential only)
+opencv-python==4.8.1.78
+
+# Scientific Computing (minimal)
+numpy==1.24.3
+
+# Web server
+gunicorn==21.2.0
+
+# Development and Testing
+pytest==7.4.2
