@@ -1,0 +1,51 @@
+# AI Wellness Assistant - Enhanced MVP with Authentication
+# Dependencies for user authentication and personalized data storage
+# Author: George Pricop
+# Version: 2.0.0-AUTH
+# Date: September 2025
+
+# Core web framework
+Flask==3.0.0
+Flask-CORS==4.0.0
+
+# Authentication and user management
+Flask-Login==0.6.3
+bcrypt==4.1.2
+Werkzeug==3.0.1
+
+# Computer vision and image processing
+opencv-python==4.8.1.78
+
+# Numerical computing
+numpy==1.24.3
+
+# Database (SQLite is built-in to Python)
+# For production, consider:
+# psycopg2-binary==2.9.7  # PostgreSQL
+# PyMySQL==1.1.0          # MySQL
+
+# Security and encryption
+cryptography==41.0.7
+PyJWT==2.8.0
+
+# Data handling and validation
+marshmallow==3.20.1
+email-validator==2.1.0.post1
+
+# Environment and configuration
+python-dotenv==1.0.0
+
+# Production server (optional)
+gunicorn==21.2.0
+
+# Development and testing (optional)
+# pytest==7.4.3
+# pytest-cov==4.1.0
+# Flask-Testing==0.8.1
+
+# Optional: Enhanced features
+# Pillow==10.0.1           # Image processing
+# redis==5.0.1             # Session storage
+# celery==5.3.4            # Background tasks
+# Flask-Mail==0.9.1        # Email notifications
+# Flask-Limiter==3.5.0     # Rate limiting
